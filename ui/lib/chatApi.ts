@@ -1,0 +1,84 @@
+import { Client, ThreadState } from "@langchain/langgraph-sdk";
+import {
+  LangChainMessage,
+  LangGraphCommand,
+} from "@assistant-ui/react-langgraph";
+
+const createClient = () => {
+  const apiUrl =
+    process.env["NEXT_PUBLIC_LANGGRAPH_API_URL"] ||
+    new URL("/api", window.location.href).href;
+  return new Client({
+    apiUrl,
+  });
+};
+
+export const createThread = async () => {
+  const client = createClient();
+  return client.threads.create({ metadata: { channel: "ui" } });
+};
+
+export const getThreadState = async (
+  threadId: string,
+): Promise<ThreadState<{ messages: LangChainMessage[] }>> => {
+  const client = createClient();
+  return client.threads.getState(threadId);
+};
+
+export const getThreadHistory = async (
+  threadId: string,
+): Promise<ThreadState<{ messages: LangChainMessage[] }>[]> => {
+  const client = createClient();
+  return client.threads.getHistory(threadId);
+};
+
+export const sendMessage = async (params: {
+  threadId: string;
+  messages?: LangChainMessage[];
+  command?: LangGraphCommand | undefined;
+  checkpointId?: string;
+}) => {
+  const client = createClient();
+  return client.runs.stream(
+    params.threadId,
+    process.env["NEXT_PUBLIC_LANGGRAPH_ASSISTANT_ID"]!,
+    {
+      input: params.messages?.length
+        ? {
+            messages: params.messages,
+          }
+        : null,
+      command: params.command,
+      streamMode: ["messages", "updates", "custom"],
+      ...(params.checkpointId != null && {
+        checkpoint: {
+          checkpoint_id: params.checkpointId,
+          checkpoint_ns: "",
+          checkpoint_map: {},
+        },
+      }),
+    },
+  );
+};
+
+export const searchThreads = async () => {
+  const client = createClient();
+  return client.threads.search({
+    limit: 100,
+    sortBy: "created_at",
+    sortOrder: "desc",
+  });
+};
+
+export const updateThread = async (
+  threadId: string,
+  metadata: Record<string, unknown>,
+) => {
+  const client = createClient();
+  return client.threads.update(threadId, { metadata });
+};
+
+export const deleteThread = async (threadId: string) => {
+  const client = createClient();
+  return client.threads.delete(threadId);
+};

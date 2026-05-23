@@ -1,0 +1,41 @@
+services:
+  agent:
+    build: ./agent
+    ports:
+      - 2024:2024
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - TZ=Europe/Berlin
+    volumes:
+      - ./workspace:/app/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+    models:
+      - llm
+
+  ui:
+    build: ./ui
+    ports:
+      - "3000:3000"
+    environment:
+      - LANGGRAPH_API_URL=http://agent:2024
+      - NEXT_PUBLIC_LANGGRAPH_ASSISTANT_ID=agent
+    depends_on:
+      - agent
+
+  dispatcher:
+    build: ./dispatcher
+    environment:
+      - LANGGRAPH_API_URL=http://agent:2024
+      - LANGGRAPH_ASSISTANT_ID=agent
+    volumes:
+      - ./workspace:/app/workspace
+    depends_on:
+      - agent
+
+models:
+  llm:
+    model: ai/gemma4:E4B
+    context_size: 32768
+    runtime_flags:
+      - "--ctx-size"
+      - "32768"

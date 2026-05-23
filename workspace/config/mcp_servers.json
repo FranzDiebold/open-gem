@@ -1,0 +1,34 @@
+{
+    "duckduckgo": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "mcp/duckduckgo"
+      ],
+      "transport": "stdio"
+    },
+    "zerolib-email": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--env-file", "/app/workspace/config/.env.email_mcp",
+        "ghcr.io/ai-zerolab/mcp-email-server"
+      ],
+      "transport": "stdio"
+    },
+    "caldav-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--env-file", "/app/workspace/config/.env.caldav_mcp",
+        "caldav-mcp"
+      ],
+      "transport": "stdio"
+    }
+}

@@ -1,0 +1,3 @@
+typing_extensions
+langgraph-sdk
+watchdog

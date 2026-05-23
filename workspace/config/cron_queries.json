@@ -1,0 +1,7 @@
+{
+    "daily-unread-mail-summary": {
+        "description": "List and summarize all unread emails from the user's inbox.",
+        "schedule": "0 8 * * *",
+        "query": "List all unread emails in the primary inbox and provide a brief summary of the most recent ones."
+    }
+}

@@ -1,0 +1,9 @@
+langchain
+langchain-core
+langchain-openai
+langgraph
+langgraph-cli[inmem]
+langgraph-checkpoint-sqlite
+aiosqlite
+langchain-mcp-adapters
+pillow
