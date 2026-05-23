@@ -37,6 +37,9 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 ### Cron queries and cron query memory
 
 Cron queries are queries that are scheduled to run at specific intervals.
+They are triggered by the Dispatcher.
+
+![Cron Query](images/OpenGem_cron_query.png)
 
 *Cron query memory* is a special type of memory that stores the results of cron queries, allowing the agent to access and reason about this information over time. This enables the agent to have a sense of time and to make decisions based on historical data, which is crucial for tasks that require long-term planning and context awareness.
 
