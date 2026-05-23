@@ -1,6 +1,8 @@
 # OpenGem 💎
 
-Your all-local, fully containerized, open source agent.
+A minimalistic, all-local, fully containerized, open-source AI agent.
+
+![OpenGem screenshot](images/OpenGem_screenshot.png)
 
 ## Quick start
 
@@ -14,7 +16,19 @@ Your all-local, fully containerized, open source agent.
 
 ### Full Containerization
 
+**Everything** runs in a container:
+
+- agent
+- dispatcher
+- UI
+- code/shell commands executed by the agent
+
 ### All local
+
+**Everything** runs locally:
+
+- agent
+- language model (i.e. [Gemma4](https://deepmind.google/models/gemma/gemma-4/))
 
 ### Cron queries and cron query memory
 
