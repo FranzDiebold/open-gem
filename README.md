@@ -8,7 +8,7 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 
 ![OpenGem screenshot](images/OpenGem_screenshot.png)
 
-## Quick start
+## 🚀 Quick start
 
 `make run`
 
@@ -33,7 +33,7 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 **Everything** runs locally:
 
 - Agent
-- Language model (i.e. [Gemma4](https://deepmind.google/models/gemma/gemma-4/))
+- Language model (i.e. [Gemma 4](https://deepmind.google/models/gemma/gemma-4/))
 
 ### Cron queries and cron query memory
 
@@ -101,7 +101,7 @@ The MCP servers are configured in `workspace/config/mcp_servers.json`.
   - `read_cron_query_memory`
   - `write_cron_query_memory`
 - Configuration / settings
-  - Cron Queries
+  - Cron queries
     - `list_cron_queries`
     - `update_cron_query`
     - `delete_cron_query`
@@ -109,10 +109,10 @@ The MCP servers are configured in `workspace/config/mcp_servers.json`.
     - `list_mcp_servers`
     - `update_mcp_server`
     - `delete_mcp_server`
-  - Skills (via Skill middleware)
+  - Skills (via `SkillMiddleware`)
     - `list_skills`
     - `upsert_skill`
 
 ## Other configuration
 
-- set timezone (`TZ`) in `compose.yaml` 
+- set timezone (`TZ`) in `compose.yaml`
