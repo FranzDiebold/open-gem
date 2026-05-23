@@ -34,7 +34,11 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 
 Cron queries are queries that are scheduled to run at specific intervals.
 
+*Cron query memory* is a special type of memory that stores the results of cron queries, allowing the agent to access and reason about this information over time. This enables the agent to have a sense of time and to make decisions based on historical data, which is crucial for tasks that require long-term planning and context awareness.
+
 ### Language only settings / configuration
+
+There is no settings UI — all configuration is done through conversation.
 
 ## Architecture / Components
 
@@ -42,9 +46,15 @@ Cron queries are queries that are scheduled to run at specific intervals.
 
 ### Agent
 
+The core agent is a [LangChain agent](https://docs.langchain.com/oss/python/langchain/agents), following the *ReAct* ("Reasoning + Acting") pattern.
+
 ### Dispatcher
 
+The dispatcher is responsible for handling the cron queries.
+
 ### UI
+
+The UI is based on [assistant-ui](https://github.com/assistant-ui/assistant-ui), a Typescript/React Library for AI Chat.
 
 ## Other configuration
 
