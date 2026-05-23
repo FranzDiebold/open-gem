@@ -16,8 +16,8 @@ MCP_SERVERS_FILE = Path(__file__).resolve().parent.parent / \
 
 
 @tool
-def read_mcp_servers() -> str:
-    """Read the MCP servers."""
+def list_mcp_servers() -> str:
+    """List the MCP servers."""
     with open(MCP_SERVERS_FILE, "r") as f:
         return json.dumps(json.load(f), indent=4)
 
@@ -61,4 +61,4 @@ def delete_mcp_server(mcp_server_id: str) -> str:
         return f"MCP server '{mcp_server_id}' not found."
 
 
-tools = [read_mcp_servers, update_mcp_server, delete_mcp_server]
+tools = [list_mcp_servers, update_mcp_server, delete_mcp_server]
