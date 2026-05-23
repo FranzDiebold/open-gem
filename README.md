@@ -1,3 +1,7 @@
+<div style="text-align: center;">
+  <img src="images/OpenGem_logo.png" alt="OpenGem logo" width="150px" />
+</div>
+
 # OpenGem 💎
 
 A minimalistic, all-local, fully containerized, open-source AI agent.

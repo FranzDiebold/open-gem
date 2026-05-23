@@ -1,0 +1,27 @@
+<svg width="350" height="300" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient gradientTransform="matrix(1.1076555252075195,0,0,1.1076555252075195,-108.55980682373047,-142.4210662841797)" gradientUnits="userSpaceOnUse" y2="388" x2="256" y1="180" x1="104" id="svg_3">
+   <stop stop-color="#ff006e" offset="0"/>
+   <stop stop-color="#ffb703" offset="1"/>
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(1.1076555252075195,0,0,1.1076555252075195,-108.55980682373047,-142.4210662841797)" gradientUnits="userSpaceOnUse" y2="388" x2="332" y1="128" x1="180" id="svg_2">
+   <stop stop-color="#a855f7" offset="0"/>
+   <stop stop-color="#22d3ee" offset="0.5"/>
+   <stop stop-color="#84cc16" offset="1"/>
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(1.1076555252075195,0,0,1.1076555252075195,-108.55980682373047,-142.4210662841797)" gradientUnits="userSpaceOnUse" y2="388" x2="408" y1="128" x1="256" id="svg_1">
+   <stop stop-color="#06b6d4" offset="0"/>
+   <stop stop-color="#2563eb" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <g stroke="null">
+
+   <polygon stroke="null" fill="none" points="6.6363677978515625,87.9712905883789 86.38756561279297,8.2200927734375 263.6124267578125,8.2200927734375 343.3636474609375,87.9712905883789 175.00001525878906,291.7799072265625 "/>
+   <polygon stroke="null" fill="url(#svg_3)" points="6.6363677978515625,87.9712905883789 86.38756561279297,8.2200927734375 175.00001525878906,291.7799072265625 "/>
+   <polygon stroke="null" fill="url(#svg_2)" points="86.38756561279297,8.2200927734375 263.6124267578125,8.2200927734375 175.00001525878906,291.7799072265625 "/>
+   <polygon stroke="null" fill="url(#svg_1)" points="263.6124267578125,8.2200927734375 343.3636474609375,87.9712905883789 175.00001525878906,291.7799072265625 "/>
+  </g>
+ </g>
+</svg>
