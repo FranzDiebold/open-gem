@@ -1,5 +1,5 @@
-<div style="text-align: center;">
-  <img src="images/OpenGem_logo.png" alt="OpenGem logo" width="150px" />
+<div align="center">
+  <img src="images/OpenGem_logo.png" alt="OpenGem logo" width="90px" />
 </div>
 
 # OpenGem 💎
