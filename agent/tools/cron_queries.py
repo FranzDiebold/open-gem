@@ -17,8 +17,8 @@ MEMORY_DIR = Path(__file__).resolve().parent.parent / "workspace" / "memory"
 
 
 @tool
-def read_cron_queries() -> str:
-    """Read the cron queries. Show as a markdown table."""
+def list_cron_queries() -> str:
+    """List all cron queries. Show as a markdown table."""
     with open(CRON_QUERIES_FILE, "r") as f:
         return json.dumps(json.load(f), indent=4)
 
@@ -98,5 +98,5 @@ def write_cron_query_memory(cron_query_id: str, content: str) -> str:
     return f"Memory for cron query '{cron_query_id}' saved to {filename}"
 
 
-tools = [read_cron_queries, update_cron_query,
+tools = [list_cron_queries, update_cron_query,
          delete_cron_query, read_cron_query_memory, write_cron_query_memory]
