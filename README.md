@@ -38,6 +38,8 @@ Cron queries are queries that are scheduled to run at specific intervals.
 
 ## Architecture / Components
 
+![OpenGem architecture](images/OpenGem_architecture.png)
+
 ### Agent
 
 ### Dispatcher
