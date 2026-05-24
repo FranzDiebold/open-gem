@@ -119,7 +119,7 @@ const ThreadWelcome: FC = () => {
                 </span>
                 <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500/0 via-cyan-400/60 to-blue-500/0 rounded-full" />
               </span>
-              ?
+              !
             </h1>
             <p className="fade-in slide-in-from-bottom-2 animate-in fill-mode-both text-muted-foreground text-base delay-200 duration-500 max-w-sm text-center">
               Your AI agent is ready. Pick a suggestion or type anything below.
