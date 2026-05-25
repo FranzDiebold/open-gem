@@ -1,6 +1,7 @@
 import os
 
-from langchain.agents import create_agent
+from deepagents import create_deep_agent
+from deepagents.backends import CompositeBackend, FilesystemBackend, StateBackend
 from langchain.agents.middleware import (
     DockerExecutionPolicy,
     ShellToolMiddleware,
@@ -24,7 +25,7 @@ llm = ChatOpenAI(base_url=llm_url, model=llm_model, openai_api_key="docker")
 
 mcp_tools = get_mcp_tools()
 
-graph = create_agent(
+agent = create_deep_agent(
     name="open-gem-agent",
     model=llm,
     tools=mcp_tools + local_tools,
@@ -39,4 +40,10 @@ graph = create_agent(
             ),
         ),
     ],
+    backend=CompositeBackend(
+        default=StateBackend(),
+        routes={
+            "/files/": FilesystemBackend(root_dir="/app/workspace/files", virtual_mode=True),
+        },
+    )
 )

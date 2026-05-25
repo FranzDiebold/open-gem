@@ -81,7 +81,16 @@ The MCP servers are configured in `workspace/config/mcp_servers.json`.
   - `fetch_content`
 - Skills
   - `load_skill`
-- E-Mail (via MCP server)
+- Code execution / shell (via LangChain `ShellToolMiddleware`)
+  - `shell`
+- File system access (via Deep Agents `FilesystemBackend`)
+  - `ls`
+  - `read_file`
+  - `write_file`
+  - `edit_file`
+  - `glob`
+  - `grep`
+- E-Mail (via MCP server [`ai-zerolab/mcp-email-server`](https://github.com/ai-zerolab/mcp-email-server))
   - `list_available_accounts`
   - `add_email_account`
   - `list_emails_metadata`
@@ -95,8 +104,6 @@ The MCP servers are configured in `workspace/config/mcp_servers.json`.
   - `list-events`
   - `update-event`
   - `delete-event`
-- Code execution / shell (via LangChain `ShellToolMiddleware`)
-  - `shell`
 - Cron query memory
   - `read_cron_query_memory`
   - `write_cron_query_memory`

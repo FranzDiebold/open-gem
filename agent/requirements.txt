@@ -3,6 +3,7 @@ langchain-core
 langchain-openai
 langgraph
 langgraph-cli[inmem]
+deepagents
 langgraph-checkpoint-sqlite
 aiosqlite
 langchain-mcp-adapters
