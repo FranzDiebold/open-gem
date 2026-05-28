@@ -41,9 +41,10 @@ agent = create_deep_agent(
         ),
     ],
     backend=CompositeBackend(
-        default=StateBackend(),
+        default=FilesystemBackend(
+            root_dir="/app/workspace/files", virtual_mode=True),
         routes={
-            "/files/": FilesystemBackend(root_dir="/app/workspace/files", virtual_mode=True),
+            "/tmp/": StateBackend(),
         },
-    )
+    ),
 )
