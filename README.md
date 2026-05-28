@@ -10,11 +10,17 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 
 ## 🚀 Quick start
 
-`make run`
+To start OpenGem, simply run:
+
+```bash
+make run
+```
 
 ### Prerequisites
 
 - [Docker](https://www.docker.com/)
+- Docker Model Runner enabled (Docker settings → AI → Docker Model Runner → Enable Docker Model Runner)
+- 
 
 ## Key concepts
 
