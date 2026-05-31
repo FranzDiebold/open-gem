@@ -10,6 +10,14 @@ A minimalistic, all-local, fully containerized, open-source AI agent.
 
 ## 🚀 Quick start
 
+For first-time setup:
+
+```bash
+make init
+```
+
+> **⚙️ Configuration Required:** Configure authentication credentials in `.env.email_mcp` and `.env.caldav_mcp`. (I use the [Mailo](https://www.mailo.com) service for email and calendar.)
+
 To start OpenGem, simply run:
 
 ```bash
@@ -20,7 +28,6 @@ make run
 
 - [Docker](https://www.docker.com/)
 - Docker Model Runner enabled (Docker settings → AI → Docker Model Runner → Enable Docker Model Runner)
-- 
 
 ## Key concepts
 
