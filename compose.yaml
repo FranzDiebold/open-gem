@@ -34,7 +34,7 @@ services:
 
 models:
   llm:
-    model: ai/gemma4:E4B
+    model: ai/gemma4:12B
     context_size: 32768
     runtime_flags:
       - "--ctx-size"
