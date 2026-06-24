@@ -6,6 +6,7 @@ services:
     environment:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - TZ=Europe/Berlin
+      - ROOT_PATH=${ROOT_PATH}
     volumes:
       - ./workspace:/app/workspace
       - /var/run/docker.sock:/var/run/docker.sock

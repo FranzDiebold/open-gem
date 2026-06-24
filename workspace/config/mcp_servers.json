@@ -16,6 +16,7 @@
         "-i",
         "--rm",
         "--env-file", "/app/workspace/config/.env.email_mcp",
+        "-v", "${ROOT_PATH}/workspace/files/email_attachments:/email_attachments",
         "ghcr.io/ai-zerolab/mcp-email-server"
       ],
       "transport": "stdio"

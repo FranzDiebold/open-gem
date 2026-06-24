@@ -2,6 +2,8 @@
 help:  ## Show this help.
 	@egrep '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
 
+ROOT_PATH ?= $(PWD)
+
 .PHONY: copy-env-files
 copy-env-files:  ## Copy .env.example to .env if .env does not exist.
 	@[ -f workspace/config/.env.email_mcp ] || cp workspace/config/.env.email_mcp.example workspace/config/.env.email_mcp
@@ -18,7 +20,7 @@ init: prepare-calendar-usage copy-env-files  ## Initialize the environment.
 
 .PHONY: run
 run:  ## Run the application.
-	docker compose up --build --remove-orphans
+	ROOT_PATH=$(ROOT_PATH) docker compose up --build --remove-orphans
 
 .PHONY: stop
 stop:  ## Stop the application
