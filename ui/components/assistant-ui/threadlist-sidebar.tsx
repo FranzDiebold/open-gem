@@ -19,7 +19,7 @@ import { ThreadList } from "@/components/assistant-ui/thread-list";
 export function ThreadListSidebar({
   ...props
 }: React.ComponentProps<typeof Sidebar>) {
-  const settingsPrompt = "Use the `load_skill` tool to load the `settings` and follow the instructions from the skill.";
+  const settingsPrompt = "Use the `settings` skill and follow the instructions from the skill.";
 
   const aui = useAui();
   const handleSettingsClick = useCallback(async () => {
