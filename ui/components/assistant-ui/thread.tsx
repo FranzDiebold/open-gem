@@ -4,7 +4,13 @@ import {
   UserMessageAttachments,
 } from "@/components/assistant-ui/attachment";
 import { StreamdownText, UserStreamdownText } from "@/components/assistant-ui/streamdown-text";
-import { Reasoning } from "@/components/assistant-ui/reasoning";
+import {
+  Reasoning,
+  ReasoningContent,
+  ReasoningRoot,
+  ReasoningText,
+  ReasoningTrigger,
+} from "@/components/assistant-ui/reasoning";
 import { ToolFallback } from "@/components/assistant-ui/tool-fallback";
 import { File } from "@/components/assistant-ui/file";
 import { Image } from "@/components/assistant-ui/image";
@@ -24,6 +30,7 @@ import {
   BranchPickerPrimitive,
   ComposerPrimitive,
   ErrorPrimitive,
+  groupPartByType,
   MessagePrimitive,
   ThreadPrimitive,
   useAui,
@@ -345,13 +352,24 @@ const AssistantMessage: FC = () => {
         <>
           <div className="aui-assistant-message-content wrap-break-word rounded-2xl border border-blue-400/30 bg-white/85 backdrop-blur-xl px-6 py-5 text-foreground leading-relaxed shadow-lg shadow-blue-500/20 transition-all hover:shadow-2xl hover:shadow-blue-500/35">
             <MessagePrimitive.GroupedParts
-              groupBy={(part) => {
-                if (part.type === "tool-call") return ["group-tool"];
-                return null;
-              }}
+              groupBy={groupPartByType({
+                "tool-call": ["group-tool"],
+                "reasoning": ["group-reasoning"],
+              })}
             >
               {({ part, children }) => {
                 switch (part.type) {
+                  case "group-reasoning": {
+                    const running = part.status.type === "running";
+                    return (
+                      <ReasoningRoot streaming={running}>
+                        <ReasoningTrigger active={running} />
+                        <ReasoningContent aria-busy={running}>
+                          <ReasoningText>{children}</ReasoningText>
+                        </ReasoningContent>
+                      </ReasoningRoot>
+                    );
+                  };
                   case "group-tool":
                     return (
                       <ToolGroupRoot className="mb-4">
