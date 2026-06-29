@@ -10,7 +10,6 @@ from langchain.agents.middleware.shell_tool import ShellSession
 from langchain_openai import ChatOpenAI
 from mcp_tools import get_mcp_tools
 from middleware.image import ImageResizeMiddleware
-from middleware.skill import SkillMiddleware
 from middleware.system_context import SystemContextMiddleware
 from tools import tools as local_tools
 
@@ -31,7 +30,6 @@ agent = create_deep_agent(
     tools=mcp_tools + local_tools,
     middleware=[
         SystemContextMiddleware(),
-        SkillMiddleware(),
         ImageResizeMiddleware(),
         ShellToolMiddleware(
             execution_policy=DockerExecutionPolicy(
@@ -41,10 +39,10 @@ agent = create_deep_agent(
         ),
     ],
     backend=CompositeBackend(
-        default=FilesystemBackend(
-            root_dir="/app/workspace/files", virtual_mode=True),
+        default=FilesystemBackend(root_dir="/app/workspace/", virtual_mode=True),
         routes={
             "/tmp/": StateBackend(),
         },
     ),
+    skills=["/skills/"],
 )

@@ -1,4 +1,5 @@
 ---
+name: settings
 description: Manage OpenGem settings / configuration. Use when the user wants to view or change their settings.
 ---
 
